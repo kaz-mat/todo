@@ -1,0 +1,112 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #fff;
+  --text: #1f2430;
+  --muted: #8a909c;
+  --line: #e6e8ec;
+  --accent: #4f6bed;
+  --danger: #e5484d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161b;
+    --card: #1e2128;
+    --text: #e8eaf0;
+    --muted: #8a909c;
+    --line: #2d313a;
+    --accent: #7b92ff;
+    --danger: #ff6b70;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px 16px;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 { margin: 0 0 16px; font-size: 24px; }
+
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+.add-form { display: flex; gap: 8px; }
+.add-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+}
+.add-form input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.add-form button {
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.filters { display: flex; gap: 4px; margin: 16px 0 8px; }
+.filters button {
+  padding: 4px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+}
+.filters button.active { border-color: var(--accent); color: var(--accent); }
+
+.list { list-style: none; margin: 0; padding: 0; }
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); }
+.item .label { flex: 1; word-break: break-word; cursor: text; }
+.item.done .label { color: var(--muted); text-decoration: line-through; }
+.item .edit {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: transparent;
+}
+.item .delete {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+}
+.item .delete:hover { color: var(--danger); }
+
+.empty { text-align: center; color: var(--muted); margin: 24px 0; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer button { border: 0; background: none; color: var(--muted); }
+.footer button:hover { color: var(--danger); }
